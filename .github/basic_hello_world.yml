@@ -1,0 +1,27 @@
+name: hello-world
+on:
+  push:
+    branches:
+      - GA_hello_world
+
+jobs:
+  build:
+    runs-on: ubuntu
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    
+    - name: Set up Python
+      run: |
+        sudo apt-get update
+        sudo apt install python3
+        sudo apt install python3-pip
+
+    - name: Check Python and pip versions
+      run: |
+        python3 --version
+        pip3 --version
+
+    - name: Run python program
+      run: python hello.py
